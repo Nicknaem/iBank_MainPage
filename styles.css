@@ -1,3 +1,39 @@
+@font-face {
+    font-family: 'BOG';
+    src: url('https://webstatic.bog.ge/fonts/BOG/BOG-UltraBold.eot');
+    src: url('https://webstatic.bog.ge/fonts/BOG/BOG-UltraBold.eot?#iefix') format('embedded-opentype'),
+    url('https://webstatic.bog.ge/fonts/BOG/BOG-UltraBold.woff2') format('woff2'),
+    url('https://webstatic.bog.ge/fonts/BOG/BOG-UltraBold.woff') format('woff'),
+    url('https://webstatic.bog.ge/fonts/BOG/BOG-UltraBold.ttf') format('truetype'),
+    url('https://webstatic.bog.ge/fonts/BOG/BOG-UltraBold.svg#BOG-UltraBold') format('svg');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'BOG Headline';
+    src: url('https://webstatic.bog.ge/fonts/BOG/BOG-Headline-Medium.eot');
+    src: url('https://webstatic.bog.ge/fonts/BOG/BOG-Headline-Medium.eot?#iefix') format('embedded-opentype'),
+    url('https://webstatic.bog.ge/fonts/BOG/BOG-Headline-Medium.woff2') format('woff2'),
+    url('https://webstatic.bog.ge/fonts/BOG/BOG-Headline-Medium.woff') format('woff'),
+    url('https://webstatic.bog.ge/fonts/BOG/BOG-Headline-Medium.ttf') format('truetype'),
+    url('https://webstatic.bog.ge/fonts/BOG/BOG-Headline-Medium.svg#BOG-Headline-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'MarkGEO';
+    src: url('https://webstatic.bog.ge/fonts/markgeo/MarkGEO-Light/MarkGEO-Light.eot');
+    src: url('https://webstatic.bog.ge/fonts/markgeo/MarkGEO-Light/MarkGEO-Light.woff2') format('woff2'),
+    url('https://webstatic.bog.ge/fonts/markgeo/MarkGEO-Light/MarkGEO-Light.woff') format('woff'),
+    url('https://webstatic.bog.ge/fonts/markgeo/MarkGEO-Light/MarkGEO-Light.ttf') format('truetype'),
+    url('https://webstatic.bog.ge/fonts/markgeo/MarkGEO-Light/MarkGEO-Light.svg#MarkGEO-Light') format('svg'),
+    url('https://webstatic.bog.ge/fonts/markgeo/MarkGEO-Light/MarkGEO-Light.eot?#iefix') format('embedded-opentype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
 *{
     box-sizing: border-box;
     margin: 0;
@@ -9,6 +45,14 @@ body{
 }
 .container{
     padding: 0px 36px;
+}
+header{
+    margin-bottom: 24px;
+    box-shadow: rgba(0,0,0,0.1) 0px 4px 8px 0px;
+}
+main{
+    display: flex;
+    gap: 25px;
 }
 /* ============================================================ menu bar */
 
@@ -29,17 +73,69 @@ body{
 .nav-bar{
     height: 48px;
     background-color: #fe5f0a;
+    font-family: 'BOG';
+}
+.nav-bar:first-child{
+    font-weight: bold;
 }
 .nav-bar .container {
     display: flex;
 }
 
 
-/* container settings */ 
+/*============================================================ container settings */ 
 .menu-bar .container{
     height: 64px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.main-column{
+    width: 50%;
+    height: 2000px;
+}
+
+/*============================================================ section settings */
+.section-card{
+    padding:24px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    background-color: #fcfcfc;
+    box-shadow: rgba(0,0,0,0.1) 0px 2px 4px 0px;
+}
+.section-content{
+    display: flex;
+}
+h3{
+    font-family: 'BOG Headline';
+    font-size: 14px;
+    font-weight: normal;
+}
+/* 
+.section-name{
+    font-family: 'BOG Headline';
+    font-weight: normal;
+    font-size: 14px;
+}  */
+
+/* ============================================================ contacts settings */
+.profile-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 140px;
+}
+.profile-name{
+    text-align: center;
+    font-family: 'MarkGeo';
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+.profile-image{
+    width: 48px;
+    height: 48px;
 }
