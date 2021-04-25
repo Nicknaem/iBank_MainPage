@@ -180,6 +180,13 @@ h3{
 }  */
 
 /* ============================================================ contacts */
+.profiles-section{
+    display: flex;
+    height: 140px;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    overflow: hidden;
+}
 .profile-item{
     display: flex;
     flex-direction: column;
@@ -189,11 +196,14 @@ h3{
     flex-shrink: 0;
 
     height: 140px;
-    padding: 16px 0px;
+    padding: 16px 2px;
     width: 100px;
 
     border-radius: 12px;
     transition: background 0.5s;
+}
+.see-more{
+    flex-grow: 0;
 }
 .profile-item:hover{
     background-color: rgba(0,0,0,0.04);
