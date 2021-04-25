@@ -103,6 +103,11 @@ main{
     display: flex;
     align-items: center;
 }
+.logo-wrapper img{
+    object-fit: cover;
+    height: 36px;
+    object-position: 0;
+}
 .options-wrapper{
     display: flex;
     align-items: center;
@@ -114,12 +119,16 @@ main{
     height: 48px;
     background-color: #fe5f0a;
     display: flex;
-    align-items:center;
-
-
+    flex-wrap: wrap;
+    overflow: hidden;
 }
 .nav-bar a{
     font-family: 'MarkGEO';
+    display: flex;
+    align-items: center;
+    height: 48px;
+    
+    white-space: nowrap; 
     font-size: 14px;
     text-decoration: none;
     color: #fcfcfc;
@@ -144,7 +153,6 @@ main{
 
 .main-column{
     width: 50%;
-    height: 2000px;
 }
 
 /*============================================================ section settings */
@@ -252,4 +260,33 @@ h3{
     width: 56px;
     height: 56px;
     margin-right: 20px;
+}
+
+
+@media (max-width: 1024px) {
+    main{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .main-column{
+        width: 600px;
+    }
+    .container{
+        padding: 0px 28px;
+    }
+}
+@media (max-width: 600px) {
+    .container{
+        padding: 0px
+    }
+    .nav-bar{
+        display: none;
+    }
+    .logo-wrapper img{
+        width: 45px;
+        margin-left: 30px;
+    }
+    .options-wrapper{
+        display: none;
+    }
 }
