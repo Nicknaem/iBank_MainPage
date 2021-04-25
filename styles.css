@@ -275,6 +275,7 @@ h3{
     align-items: center;
     font-family: 'MarkGEO';
     font-size: 13px;
+    margin-right: 20px;
 
 }
 .points-info{
@@ -342,6 +343,7 @@ h3{
 .col-name{
     font-family: 'BOG Headline';
     font-size: 12px;
+    color: rgba(0,0,0,0.6);
 }
 .plastic-card-wrapper{
     font-family: 'BOG';
@@ -374,6 +376,79 @@ h3{
 .column-2{
     padding-left: 40px;
 }
+/* ============================================================ currency */
+.currency .section-content{
+    margin: 0px -24px -24px -24px;
+    display: grid;
+    /* grid-template-columns: 1fr 2fr 1fr 1fr; */
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: 48px 48px 64px 64px 64px;
+}
+
+.currency .section-content div{
+    display: flex;
+    align-items: center;
+}
+
+/* all divs containing class starting with 'col' */
+.currency .section-content div[class^="col"]{
+    padding: 0px 24px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.grid-text{
+    font-family: 'BOG';
+    font-size: 12px;
+    color: rgba(0,0,0,0.5);
+}
+.grid-text-bold{
+    font-family: 'BOG';
+    font-size: 12px;
+    font-weight: bold;
+    color: rgba(0,0,0,1);
+}
+.col-currency {
+    grid-column: 1 / span 4;
+}
+.col-officialCurrency{
+    grid-column: 5 / span 6;
+}
+.col-ibankCurrency{
+    grid-column: 11 / span 6;
+    /* justify-content: center; */
+}
+
+.col-empty{
+    grid-column: 1 / 11;
+}
+.col-buyPrice{
+    grid-column: 11 / span 3;
+}
+.col-sellPrice{
+    grid-column: 14 / span 3;
+    justify-content: flex-end;
+}
+
+/* all columnts of col-currency expect NAME columns */
+.col-currency:not(.col-name) div{
+    background-color: rgba(0,0,0,0.1);
+    color: rgba(0,0,0,0.9);
+    padding: 3px 20px;
+    border-radius: 2px;
+}
+
+.col-officialCurrency :first-child{
+    margin-right: 15px;
+}
+.col-officialCurrency :last-child{
+    color: rgba(0,0,0,0.7);
+}
+
+.col-buyPrice, .col-sellPrice{
+    font-size: 14px;
+}
+
+
 /* ============================================================ media queries */
 @media (max-width: 1024px) {
     main{
