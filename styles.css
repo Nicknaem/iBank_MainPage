@@ -24,6 +24,30 @@
 }
 @font-face {
     font-family: 'BOG';
+    src: url('https://webstatic.bog.ge/fonts/BOG/BOG-Medium.eot');
+    src: url('https://webstatic.bog.ge/fonts/BOG/BOG-Medium.eot?#iefix') format('embedded-opentype'),
+    url('https://webstatic.bog.ge/fonts/BOG/BOG-Medium.woff2') format('woff2'),
+    url('https://webstatic.bog.ge/fonts/BOG/BOG-Medium.woff') format('woff'),
+    url('https://webstatic.bog.ge/fonts/BOG/BOG-Medium.ttf') format('truetype'),
+    url('https://webstatic.bog.ge/fonts/BOG/BOG-Medium.svg#BOG-Medium') format('svg');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'BOG';
+    src: url('https://webstatic.bog.ge/fonts/BOG/BOG-SemiBold.eot');
+    src: url('https://webstatic.bog.ge/fonts/BOG/BOG-SemiBold.eot?#iefix') format('embedded-opentype'),
+    url('https://webstatic.bog.ge/fonts/BOG/BOG-SemiBold.woff2') format('woff2'),
+    url('https://webstatic.bog.ge/fonts/BOG/BOG-SemiBold.woff') format('woff'),
+    url('https://webstatic.bog.ge/fonts/BOG/BOG-SemiBold.ttf') format('truetype'),
+    url('https://webstatic.bog.ge/fonts/BOG/BOG-SemiBold.svg#BOG-SemiBold') format('svg');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'BOG';
     src: url('https://webstatic.bog.ge/fonts/BOG/BOG-Bold.eot');
     src: url('https://webstatic.bog.ge/fonts/BOG/BOG-Bold.eot?#iefix') format('embedded-opentype'),
     url('https://webstatic.bog.ge/fonts/BOG/BOG-Bold.woff2') format('woff2'),
@@ -81,7 +105,8 @@ body{
     background-color: #f4f4f4;
 }
 .container{
-    padding: 0px 36px;
+    width: 1296px;
+    margin: auto;
 }
 header{
     margin-bottom: 24px;
@@ -91,6 +116,12 @@ main{
     display: flex;
     gap: 25px;
 }
+.grid-row{
+    display: contents;
+}
+.grid-row *{
+    display: flex;
+}
 /* ============================================================ menu bar */
 
 /* .menu-bar .container{
@@ -98,11 +129,10 @@ main{
     height: 64px;
 } */
 .website-version{
-    font-family: 'MarkGEO';
-    font-size: 10px;
-    border-radius: 10px;
-    background-color: rgba(0,0,0,0.04);
+    font-size: 10px !important;
 
+    background-color: rgba(0,0,0,0.04);
+    border-radius: 10px;
     margin-left: 15px;
     padding: 2px 7px;
 }
@@ -129,26 +159,21 @@ main{
     justify-content: center;
 }
 
-.options-wrapper .icon-border{
-    margin-right: 40px;
-} 
-
 .options-wrapper .user-name{
-    font-family: 'MarkGEO';
     margin-right: 10px;
-    font-size: 12px;
 }
 .options-wrapper .fa-user{
     width: 40px;
     height: 40px;
-    margin-right: 20px;
+    margin-right: 10px;
 
     background-color: #fcfcfc;
     border-radius: 50%;
-    font-size:20px;
-
+    font-size:13px;
 }
-
+.options-wrapper .fa-moon{
+    margin-right: 30px;
+}
 .logo-wrapper{
     display: flex;
     align-items: center;
@@ -189,13 +214,13 @@ main{
 }
 .nav-bar .container {
     display: flex;
+    flex-wrap: wrap;
 }
 
 
 /*============================================================ container settings */ 
 .menu-bar .container{
     height: 64px;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -212,22 +237,14 @@ main{
     border-radius: 12px;
     background-color: #fcfcfc;
     box-shadow: rgba(0,0,0,0.1) 0px 2px 4px 0px;
+    overflow: hidden;
 }
 .section-content{
     display: flex;
     padding-top: 12px;
 }
-h3{
-    font-family: 'BOG Headline';
-    font-size: 14px;
-    font-weight: normal;
-}
-/* 
-.section-name{
-    font-family: 'BOG Headline';
-    font-weight: normal;
-    font-size: 14px;
-}  */
+
+
 
 /* ============================================================ contacts */
 .profiles-section{
@@ -247,25 +264,24 @@ h3{
 
     height: 140px;
     padding: 16px 2px;
-    width: 100px;
+    /* width: 100px; */
 
     border-radius: 12px;
     transition: background 0.5s;
 }
+.profiles-section .profile-item{
+    flex-basis: 25%;
+}
 .see-more{
     flex-grow: 0;
+    width: 100px;
 }
 .profile-item:hover{
     background-color: rgba(0,0,0,0.04);
 }
 
 .profile-name{
-    margin-top: 6px;
     text-align: center;
-    font-family: 'MarkGeo';
-    font-size: 14px;
-    font-weight: 600;
-    line-height: 1.5;
 }
 .profile-image{
     width: 48px;
@@ -282,17 +298,12 @@ h3{
 .points-wrapper{
     display: flex;
     align-items: center;
-    font-family: 'MarkGEO';
-    font-size: 13px;
     margin-right: 20px;
-
 }
 .points-info{
     margin-left: 15px;
 }
-.points-value{
-    font-weight: bold;
-}
+
 .points .profile-image{
     border: solid 10px rgba(0,0,0,0.04);
     border-radius: 50%;
@@ -308,9 +319,6 @@ h3{
 .pension a{
     text-decoration: none;
     color: #fe5f0a;
-    font-family: 'MarkGEO';
-    font-weight: bold;
-    font-size: 14px;
     padding: 10px 0px;
 }
 .pension-image{
@@ -323,52 +331,63 @@ h3{
 .plastic-card .section-content{
     flex-direction: column;
 }
-.current-balance, .money-unit{
-    display:flex;
+.current-balance{
+    display: flex;
 }
-/* general component */
-.money-unit{
-    font-family: 'BOG';
-    font-weight: bold;
-    color: rgba(0,0,0,0.8);
-    font-size: 18px;
-
+.current-balance .money-unit{
     margin-right: 25px;
+    font-size: 18px !important;
+    color: rgba(0,0,0,0.8);
+    font-weight: 700;
+}
+/* general component money-unit*/
+.money-unit{
+    display: flex;
+    align-items: center;
+
+    font-size: 14px !important;
 }
 .money-amount{
     margin-right: 5px;
 }
 /* //----------------------------------- */
 .plastic-card-info{
-    margin-top: 25px;
+    margin: 0px -24px;
     display: grid;
     grid-template-columns: 2fr 2fr 1fr;
-    row-gap: 30px;
+    grid-template-rows: 48px 64px 64px 64px 44px;
+}
+.plastic-card-info .list-all{
+    margin-bottom: -24px;
 }
 
-.plastic-card-wrapper, .currency-wrapper, .money-unit{
-    display: flex;
+.plastic-card-info .grid-row *{
     align-items: center;
 }
-.col-name{
-    font-family: 'BOG Headline';
-    font-size: 12px;
-    color: rgba(0,0,0,0.6);
+
+/* adding left/right gutters for row */
+.plastic-card-info .grid-row > :first-child{
+    padding-left: 24px;
 }
-.plastic-card-wrapper{
-    font-family: 'BOG';
-    font-size: 14px;
+.plastic-card-info .grid-row > :last-child{
+    padding-right: 24px;
 }
+
+/* border 1px to all direct children of grid-row EXCEPT last grid-row */
+.plastic-card-info .grid-row:nth-last-child(n+3) > * {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.plastic-card-info .not-available{
+    border-color: rgba(0,0,0,0.2);
+}
+
 .plastic-card-wrapper img{
     border-radius: 2px;
     margin-right: 15px;
 }
 
 .currency-wrapper div{
-    font-family: 'BOG';
-    font-size: 0.8em;
-
-    padding: 0px 10px;
+    padding: 0px 8px;
     margin-right: 5px;
 
     border-radius: 10px;
@@ -376,15 +395,22 @@ h3{
 }
 
 .column-3{
-    justify-self: end;
-}
-.plastic-card-info .money-unit{
-    margin-right: 0px;
-    font-size: 13px;
+    justify-content: flex-end;
 }
 
 .column-2{
     padding-left: 40px;
+}
+.list-all{
+    grid-column: 1 / 4;
+}
+/* //----------------------------------- section animations */
+.plastic-card-info .grid-row:nth-child(n+2) > *{
+    transition: background 0.5s;
+}
+/* change color of all grid-row (EXCEPT FIRST grid-row) direct childrens */
+.plastic-card-info .grid-row:nth-child(n+2):hover:not(:last-child) > *{
+    background-color: rgba(0,0,0,0.1);
 }
 /* ============================================================ currency */
 .currency .section-content{
@@ -406,22 +432,58 @@ h3{
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-.grid-text{
+/* ============================================================ text settings */
+
+.text-small{
     font-family: 'BOG';
     font-size: 12px;
-    color: rgba(0,0,0,0.5);
+    line-height: 1.4em;
+    font-weight: 500;
+    color: rgba(0,0,0,0.68);
 }
-.grid-text-bold{
+.text-small-bold{
     font-family: 'BOG';
     font-size: 12px;
     font-weight: bold;
     color: rgba(0,0,0,1);
 }
+.text-normal{
+    font-family: 'BOG';
+    font-size: 13px;
+    line-height: 18.2px;
+    font-weight: 500;
+    color:rgba(0,0,0,0.92)
+}
+.text-normal-bold{
+    font-family: 'BOG';
+    font-size: 14px;
+    line-height: 21px;
+    font-weight: 600;
+    color:rgba(0,0,0,0.92)
+}
+.not-available{
+    color: rgba(0,0,0,0.32);
+}
+.section-name{
+    font-family: 'BOG Headline';
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.4em;
+}
+.col-name{
+    font-family: 'BOG Headline';
+    font-size: 12px;
+    /* font-weight: 500; */
+    color: rgba(0,0,0,0.68);
+}
+
+/* ------------------------------------------------------------ */
 .col-currency {
     grid-column: 1 / span 4;
 }
 .col-officialCurrency{
     grid-column: 5 / span 6;
+    flex-wrap: wrap;
 }
 .col-ibankCurrency{
     grid-column: 11 / span 6;
@@ -439,6 +501,7 @@ h3{
     justify-content: flex-end;
 }
 
+
 /* all columnts of col-currency expect NAME columns */
 .col-currency:not(.col-name) div{
     background-color: rgba(0,0,0,0.1);
@@ -454,38 +517,45 @@ h3{
     color: rgba(0,0,0,0.7);
 }
 
-.col-buyPrice, .col-sellPrice{
-    font-size: 14px;
-}
+
 /* ============================================================ last operations */
 .last-operations .section-content{
     margin: 0px -24px;
+    margin-bottom: -24px;
     flex-direction: column;
 }
 .operation-records{
-    height: 72px;
     display: flex;
     align-items: center;
     transition: background 0.5s;
 }
-.operation-records:hover{
+.operation-records > * {
+    height: 72px;
+    display: flex;
+}
+.operation-records .money-unit :first-child{
+    margin-left: 5px;
+}
+.operation-records:nth-last-child(n+2):hover{
     background-color: rgba(0,0,0,0.08);
 }
 .operation-image{
     width:32px;
     height: 32px;
     margin-left: 24px;
-    margin-right: 10px;
+    margin-right: 16px;
 }
 
+.operation-data-grid{
+    display: grid;
+    align-content: center;
+}
 .operation-data-wrapper{
-    display: flex;
-    flex-direction: column;
     flex-grow: 1;
 }
+.operation-records:nth-last-child(n+3) > :nth-child(n+2){
+    border-bottom: 1px solid rgba(0,0,0,0.1);
 
-.last-operations .money-unit{
-    font-size: 13px;
 }
 .last-operations .fa-ellipsis-v{
     font-size: 15px;
@@ -494,16 +564,43 @@ h3{
 }
 .operation-location{
     white-space: nowrap; 
-    font-family: 'BOG';
-    font-size: 13px;
+
     margin: 2px 0px;
     overflow: hidden;
     text-overflow: ellipsis;
     flex-shrink: 1;
+}
+/* general item */
+.list-all{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    color: #fe5f0a;
+}
+.list-all > div{
+    display: flex;
+    align-items:center ;
+    padding: 5px 15px 7px 15px;
+    border-radius: 3px;
+    transition: background 0.5s;
+}
+.list-all > div:hover{
+    background-color: rgba(0,0,0,0.06);
 
+}
+.list-all div[class^="text"]{
+    color: #fe5f0a;
+    margin-left: 10px;
 }
 
 /* ============================================================ media queries */
+@media (max-width: 1366px) {
+    .container{
+        width: 95%;
+    }
+}
 @media (max-width: 1024px) {
     main{
         flex-wrap: wrap;
@@ -529,5 +626,28 @@ h3{
     }
     .options-wrapper{
         display: none;
+    }
+    .column-2{
+        display: none;
+    }
+    .column-3{
+        grid-column: 2 / 4 ;
+    }
+
+
+    .col-currency{
+        grid-column: 1 / 4;
+    }
+    .col-officialCurrency{
+        grid-column: 4 / 9;
+    }
+    .col-buyPrice{
+        grid-column: 9 / 13;
+    }
+    .col-sellPrice{
+        grid-column: 13 / 17;
+    }
+    .col-empty{
+        grid-column: 1 / 9;
     }
 }
