@@ -106,17 +106,32 @@ main{
     margin-left: 15px;
     padding: 2px 7px;
 }
-
-.options-wrapper .fa-moon{
+/* general component */
+.icon-border{
     height: 32px;
     width: 32px;
-    margin-right: 40px;
 
     border-radius: 50%;
     font-size: 12px;
 
     transition: background 0.5s;
-}   
+}
+.icon-border:hover{
+    background-color: rgba(0,0,0,0.04);
+}
+
+
+/* //----------------------------------- */
+
+.icon-center{
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+
+.options-wrapper .icon-border{
+    margin-right: 40px;
+} 
 
 .options-wrapper .user-name{
     font-family: 'MarkGEO';
@@ -133,9 +148,7 @@ main{
     font-size:20px;
 
 }
-.options-wrapper .fa-moon:hover{
-    background-color: rgba(0,0,0,0.04);
-}
+
 .logo-wrapper{
     display: flex;
     align-items: center;
@@ -259,11 +272,7 @@ h3{
     height: 48px;
     border-radius: 50%;
 }
-.icon-center{
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-}
+
 .contacts .fa-ellipsis-h{
     background-color: rgba(255, 96, 10, 0.16);
     color: rgba(255, 96, 10);
@@ -317,6 +326,7 @@ h3{
 .current-balance, .money-unit{
     display:flex;
 }
+/* general component */
 .money-unit{
     font-family: 'BOG';
     font-weight: bold;
@@ -328,7 +338,7 @@ h3{
 .money-amount{
     margin-right: 5px;
 }
-
+/* //----------------------------------- */
 .plastic-card-info{
     margin-top: 25px;
     display: grid;
@@ -447,7 +457,51 @@ h3{
 .col-buyPrice, .col-sellPrice{
     font-size: 14px;
 }
+/* ============================================================ last operations */
+.last-operations .section-content{
+    margin: 0px -24px;
+    flex-direction: column;
+}
+.operation-records{
+    height: 72px;
+    display: flex;
+    align-items: center;
+    transition: background 0.5s;
+}
+.operation-records:hover{
+    background-color: rgba(0,0,0,0.08);
+}
+.operation-image{
+    width:32px;
+    height: 32px;
+    margin-left: 24px;
+    margin-right: 10px;
+}
 
+.operation-data-wrapper{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.last-operations .money-unit{
+    font-size: 13px;
+}
+.last-operations .fa-ellipsis-v{
+    font-size: 15px;
+    color: rgba(0,0,0,0.4);
+    margin-right: 20px;
+}
+.operation-location{
+    white-space: nowrap; 
+    font-family: 'BOG';
+    font-size: 13px;
+    margin: 2px 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 1;
+
+}
 
 /* ============================================================ media queries */
 @media (max-width: 1024px) {
