@@ -4,3 +4,6 @@
 .profile-item profile-name goes out of profile-item container if text is large
 
 text-small-bold vs txt-s-b
+
+Just making blank commit to make Github pages work
+"after changing repo visibility push a fresh commit to your repository. Doing this will trigger a rebuild of your site and should make your site available after it’s finished rebuilding."
