@@ -58,10 +58,11 @@
                     </div> -->
                 </div>
             </div>
+            <div class="content-more" section-index="0" onclick="loadMore()">ყველას ნახვა</div>
         </div>
     </div>
 
-    <script>
+<script>
 
     class Config{
         constructor(list){
@@ -107,7 +108,7 @@
 
     // ============================================================ Input Data
     var cardItems;
-    async function pullData(tabIndex){
+    async function pullData(tabIndex,recordsAmount){
         switch(tabIndex){
             case 0:{
                 var url = 'https://my-json-server.typicode.com/Nika-m/iBank_MainPage/news';
@@ -131,7 +132,7 @@
         }).then((response)=>{
             return response.json();
         }).then((result)=>{
-            cardItems = result;
+            cardItems = result.slice(0,recordsAmount);
             let catalog = new Catalog(cardItems);
             catalog.render()
         })
@@ -144,35 +145,39 @@
     }   
 
     //data for default first page
-    //const cardItems = pullData(0);
+    //const cardItems = pullData(0,8);
 
-    pullData(0);
+    pullData(0,8);
     // console.log(cardItems);
     // let catalog = new Catalog(cardItems);
     // catalog.render()
 
 
+    function loadMore(){
+        //current index of section
+        let sectionIndex = document.querySelector('.content-more').getAttribute('section-index'); 
+        pullData(parseInt(sectionIndex));
+    }
 
+    document.querySelectorAll('.tab-link').forEach( (element)=>{
+    element.addEventListener('click', (event)=>{
 
-        document.querySelectorAll('.tab-link').forEach( (element)=>{
-        element.addEventListener('click', (event)=>{
+        document.querySelector('.tab-header').textContent = event.target.textContent;
 
-            document.querySelector('.tab-header').textContent = event.target.textContent;
+        document.querySelectorAll('.tab-link').forEach( element=> element.classList.remove('tab-active'));
+        event.target.classList.toggle('tab-active');
 
-            document.querySelectorAll('.tab-link').forEach( element=> element.classList.remove('tab-active'));
-            event.target.classList.toggle('tab-active');
+        document.querySelectorAll('.content-section').forEach( element=> element.classList.remove('section-active'));
 
-            document.querySelectorAll('.content-section').forEach( element=> element.classList.remove('section-active'));
-
-            [...event.target.parentNode.children].forEach((item,index)=>{
-                if(item === event.target){
-                    console.log(`you clicked on ${index} tab, trying to show you related content`);
-                    // document.querySelectorAll('.content-section')[index].classList.toggle('section-active');
-                    
-                    pullData(index);
-                    // pulldata renders itself 
-                }
-            })
-        });
+        [...event.target.parentNode.children].forEach((item,index)=>{
+            if(item === event.target){
+                console.log(`you clicked on ${index} tab, trying to show you related content`);
+                // document.querySelectorAll('.content-section')[index].classList.toggle('section-active');
+                document.querySelector('.content-more').setAttribute('section-index',index)
+                pullData(index,8);
+                // pulldata renders itself 
+            }
+        })
+    });
     })
-    </script>
+</script>
