@@ -50,19 +50,12 @@
             <div class="tab-header">სიახლეები</div>
             <div class="tab-content">
                 <div class="content-section section-active">
-                    <div class="content-card">
+                    <!-- <div class="content-card">
                         <img src='../Assets/toucan.jpg' class="card-image"></img>
                         <div class="card-date text-small">06.მაი.2021</div>
                         <div class="card-desc text-normal">სპეციალური შეთავაზება American Express ბარათის მფლობელთათვის ულიმიტო მიქს შმიქსი</div>
                         <a href="#" class="card-more">გაიგე მეტი</a>
-                    </div>
-
-                </div>
-                <div class="content-section">
-
-                </div>
-                <div class="content-section">
-
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -85,7 +78,6 @@
         createCard(type, classNames = null, value = null, attr = null, attrValue = null){
             let node = document.createElement(type);
             
-            console.log(typeof(classNames));
             node.classList.add(classNames);            
             node.innerText = value;
             node.setAttribute(attr,attrValue);
@@ -94,7 +86,8 @@
 
         render(){
             const section = document.querySelector('.content-section');
-
+            section.innerHTML = '';
+            console.log(this.InputData);
             this.InputData.forEach((item,index)=>{
 
                 let cardNode = this.createCard('div', 'content-card');
@@ -113,62 +106,50 @@
     }
 
     // ============================================================ Input Data
-    const cardItems = [
-        {
-            'imageURL':'https://bankofgeorgia.ge/images/a7f42b88-141d-4ad8-aa3d-053e8da3e916.jpg',
-            'date':'06.მაი.2021',
-            'text':'სპეციალური შეთავაზება American Express ბარათის მფლობელთათვის ულიმიტო მიქს შმიქსი',
-            'link':'https://bankofgeorgia.ge/ka/about/news#blog'
-        },
-        {
-            'imageURL':'https://bankofgeorgia.ge/images/32cf17f5-fb4e-4405-950d-aa139c72486f.jpg',
-            'date':'05.მაი.2021',
-            'text':'1-დღიანი ულიმიტო ბარათი მთაწმინდის პარკში',
-            'link':'https://bankofgeorgia.ge/ka/about/news#blog'
-        },
-        {
-            'imageURL':'https://bankofgeorgia.ge/images/68adf012-9cf5-4e71-8e51-83120a751e12.jpg',
-            'date':'29.აპრ.2021',
-            'text':'სამუშაო განრიგი',
-            'link':'https://bankofgeorgia.ge/ka/about/news#blog'
-        },
-        {
-            'imageURL':'https://bankofgeorgia.ge/images/58967821-3765-4614-970d-2f1264a9cd20.jpg',
-            'date':'27.აპრ.2021',
-            'text':'საუკეთესო გადაწყვეტილებაა, შეარჩიო ბინა ჩვენი პარტნიორი დეველოპერებისგან',
-            'link':'https://bankofgeorgia.ge/ka/about/news#blog'
-        },
+    var cardItems;
+    async function pullData(tabIndex){
+        switch(tabIndex){
+            case 0:{
+                var url = 'https://my-json-server.typicode.com/Nika-m/iBank_MainPage/news';
+                break;
+            }
+            case 1:{
+                var url = 'https://my-json-server.typicode.com/Nika-m/iBank_MainPage/press';
+                break;
+            }
+            case 2:{
+                var url = 'https://my-json-server.typicode.com/Nika-m/iBank_MainPage/notifications';
+                break;
+            }
+            case 3:{
+                var url = 'https://my-json-server.typicode.com/Nika-m/iBank_MainPage/blog';
+                break;
+            }
+        }
+        fetch(url,{
+        method:'GET'
+        }).then((response)=>{
+            return response.json();
+        }).then((result)=>{
+            cardItems = result;
+            let catalog = new Catalog(cardItems);
+            catalog.render()
+        })
 
-        {
-            'imageURL':'https://bankofgeorgia.ge/images/32cf17f5-fb4e-4405-950d-aa139c72486f.jpg',
-            'date':'05.მაი.2021',
-            'text':'1-დღიანი ულიმიტო ბარათი მთაწმინდის პარკში',
-            'link':'https://bankofgeorgia.ge/ka/about/news#blog'
-        },
-        {
-            'imageURL':'https://bankofgeorgia.ge/images/a7f42b88-141d-4ad8-aa3d-053e8da3e916.jpg',
-            'date':'06.მაი.2021',
-            'text':'სპეციალური შეთავაზება American Express ბარათის მფლობელთათვის ულიმიტო მიქს შმიქსი',
-            'link':'https://bankofgeorgia.ge/ka/about/news#blog'
-        },
-        {
-            'imageURL':'https://bankofgeorgia.ge/images/58967821-3765-4614-970d-2f1264a9cd20.jpg',
-            'date':'27.აპრ.2021',
-            'text':'საუკეთესო გადაწყვეტილებაა, შეარჩიო ბინა ჩვენი პარტნიორი დეველოპერებისგან',
-            'link':'https://bankofgeorgia.ge/ka/about/news#blog'
-        },
-        {
-            'imageURL':'https://bankofgeorgia.ge/images/68adf012-9cf5-4e71-8e51-83120a751e12.jpg',
-            'date':'29.აპრ.2021',
-            'text':'სამუშაო განრიგი',
-            'link':'https://bankofgeorgia.ge/ka/about/news#blog'
-        },
-    ]
-    
-    let catalog = new Catalog(cardItems);
-    catalog.render()
+        // let sectionData  = await fetch(`http://localhost:3001/activities/${hostEmail}`)
+        // let sectionData  = await fetch(url);
+        // sectionData = await sectionData.json();
 
+        // return sectionData;
+    }   
 
+    //data for default first page
+    //const cardItems = pullData(0);
+
+    pullData(0);
+    // console.log(cardItems);
+    // let catalog = new Catalog(cardItems);
+    // catalog.render()
 
 
 
@@ -186,7 +167,10 @@
             [...event.target.parentNode.children].forEach((item,index)=>{
                 if(item === event.target){
                     console.log(`you clicked on ${index} tab, trying to show you related content`);
-                    document.querySelectorAll('.content-section')[index].classList.toggle('section-active');
+                    // document.querySelectorAll('.content-section')[index].classList.toggle('section-active');
+                    
+                    pullData(index);
+                    // pulldata renders itself 
                 }
             })
         });

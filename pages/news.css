@@ -312,14 +312,14 @@ body{
     display: flex;
     flex-wrap: wrap;
     margin-right: -32px;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 /* .content-section:nth-child(4n){
     margin-right: 0px;
 } */
-.section-active{
+/* .section-active{
     visibility: visible;
-}
+} */
 .content-card{
     display: flex;
     flex-direction: column;
