@@ -1,0 +1,169 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iBank</title>
+    <link rel="stylesheet" href="news.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+</head>
+<body>
+     <header>
+        <div class="menu-bar">
+            <div class="container">
+                <div class="logo-wrapper">
+                    <img src="../Assets/large.svg" alt="">
+                    <div class="website-version text-normal not-available">BETA</div>
+                </div>
+                <div class="options-wrapper">
+                    <i class="fas fa-moon icon-border icon-center"></i>
+                    <i class="far fa-user icon-center"></i>
+                    <div class="user-name text-small">ნიკა მაისურაძე</div>
+                    <div class="icon-border icon-center">
+                        <img src="../Assets/profile-arrow.png" style="width: 16px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <nav class="nav-bar">
+        <div class="container">
+            <a href="../index.html">მთავარი</a>
+            <a href="#">პროდუქტები</a>
+            <a href="#">გადარიცხვები და გადახდები</a>
+            <a href="#">გზავნილები</a>
+            <a href="#">ჩემი ოპერაციები</a>
+            <a href="#">შეთავაზებები და განაცხადები</a>
+            <a href="#">სერვისები</a>
+        </div>
+    </nav>
+
+    <div class="tab-switcher">
+        <div class="container">
+            <div class="tab-nav text-normal">
+                <div class="tab-link tab-active">სიახლეები</div>
+                <div class="tab-link">პრესრელიზები</div>
+                <div class="tab-link">შეტყობინებები</div>
+                <div class="tab-link">ბლოგი</div>
+            </div>
+            <div class="tab-header">სიახლეები</div>
+            <div class="tab-content">
+                <div class="content-section section-active">
+                    <div class="content-card">
+                        <img src='../Assets/toucan.jpg' class="card-image"></img>
+                        <div class="card-date text-small">06.მაი.2021</div>
+                        <div class="card-desc text-normal">სპეციალური შეთავაზება American Express ბარათის მფლობელთათვის ულიმიტო მიქს შმიქსი</div>
+                        <a href="#" class="card-more">გაიგე მეტი</a>
+                    </div>
+
+                </div>
+                <div class="content-section">
+
+                </div>
+                <div class="content-section">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+    class Config{
+        constructor(list){
+            this.InputData = list;
+        }
+    }
+
+    class Catalog extends Config {
+
+        appendNode(node,targetNode){
+            targetNode.appendChild(node);
+        }
+
+        createCard(type, classNames = null, value = null, attr = null, attrValue = null){
+            let node = document.createElement(type);
+            
+            console.log(typeof(classNames));
+            node.classList.add(classNames);            
+            node.innerText = value;
+            node.setAttribute(attr,attrValue);
+            return node;
+        }
+
+        render(){
+            const section = document.querySelector('.content-section');
+
+            this.InputData.forEach((item,index)=>{
+
+                let cardNode = this.createCard('div', 'content-card');
+
+                cardNode.appendChild( this.createCard('img', 'card-image', undefined, 'src', item.imageURL) );
+                cardNode.appendChild( this.createCard('div', ['card-date', 'text-small'], item.date) );
+                cardNode.appendChild( this.createCard('div', ['card-desc', 'text-normal'], item.text) );
+                cardNode.appendChild( this.createCard('a', 'card-more', undefined, 'href', item.link) );
+
+                cardNode.style.animationDelay = `${0.1 * index}s`;
+                this.appendNode(cardNode, section);
+            })
+        }
+
+
+    }
+
+    // ============================================================ Input Data
+    const cardItems = [
+        {
+            'imageURL':'https://bankofgeorgia.ge/images/a7f42b88-141d-4ad8-aa3d-053e8da3e916.jpg',
+            'date':'06.მაი.2021',
+            'text':'spec shetavazebebi',
+            'link':'https://bankofgeorgia.ge/ka/about/news#blog'
+        },
+        {
+            'imageURL':'https://bankofgeorgia.ge/images/a7f42b88-141d-4ad8-aa3d-053e8da3e916.jpg',
+            'date':'06.მაი.2021',
+            'text':'spec shetavazebebi',
+            'link':'https://bankofgeorgia.ge/ka/about/news#blog'
+        },
+        {
+            'imageURL':'https://bankofgeorgia.ge/images/a7f42b88-141d-4ad8-aa3d-053e8da3e916.jpg',
+            'date':'06.მაი.2021',
+            'text':'spec shetavazebebi',
+            'link':'https://bankofgeorgia.ge/ka/about/news#blog'
+        },
+        {
+            'imageURL':'https://bankofgeorgia.ge/images/a7f42b88-141d-4ad8-aa3d-053e8da3e916.jpg',
+            'date':'06.მაი.2021',
+            'text':'spec shetavazebebi',
+            'link':'https://bankofgeorgia.ge/ka/about/news#blog'
+        },
+    ]
+    
+    let catalog = new Catalog(cardItems);
+    catalog.render()
+
+
+
+
+
+
+        document.querySelectorAll('.tab-link').forEach( (element)=>{
+        element.addEventListener('click', (event)=>{
+
+            document.querySelector('.tab-header').textContent = event.target.textContent;
+
+            document.querySelectorAll('.tab-link').forEach( element=> element.classList.remove('tab-active'));
+            event.target.classList.toggle('tab-active');
+
+            document.querySelectorAll('.content-section').forEach( element=> element.classList.remove('section-active'));
+
+            [...event.target.parentNode.children].forEach((item,index)=>{
+                if(item === event.target){
+                    console.log(`you clicked on ${index} tab, trying to show you related content`);
+                    document.querySelectorAll('.content-section')[index].classList.toggle('section-active');
+                }
+            })
+        });
+    })
+    </script>
