@@ -365,8 +365,8 @@ body{
     overflow: hidden;
     font-size: 1.05em;
     color: rgba(0,0,0,0.5);
-    line-height: 1em;
-    max-height: calc(3*1.05em);
+    line-height: 1.2em;
+    max-height: calc(3*1.2em);
 }
 
 .card-more{

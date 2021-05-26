@@ -79,7 +79,7 @@
         createCard(type, classNames = null, value = null, attr = null, attrValue = null){
             let node = document.createElement(type);
             
-            node.classList.add(classNames);            
+            node.className = classNames;            
             node.innerText = value;
             node.setAttribute(attr,attrValue);
             return node;
@@ -94,9 +94,9 @@
                 let cardNode = this.createCard('div', 'content-card');
 
                 cardNode.appendChild( this.createCard('img', 'card-image', undefined, 'src', item.imageURL) );
-                cardNode.appendChild( this.createCard('div', ['card-date', 'text-small'], item.date) );
-                cardNode.appendChild( this.createCard('div', ['card-desc', 'text-normal'], item.text) );
-                cardNode.appendChild( this.createCard('a', 'card-more', undefined, 'href', item.link) );
+                cardNode.appendChild( this.createCard('div', 'card-date text-small', item.date) );
+                cardNode.appendChild( this.createCard('div', 'card-desc text-normal', item.text) );
+                cardNode.appendChild( this.createCard('a', 'card-more', 'გაიგე მეტი', 'href', item.link) );
 
                 cardNode.style.animationDelay = `${0.1 * index}s`;
                 this.appendNode(cardNode, section);
@@ -108,7 +108,7 @@
 
     // ============================================================ Input Data
     var cardItems;
-    async function pullData(tabIndex,recordsAmount){
+    async function pullData(tabIndex,recordsAmount,id){
         switch(tabIndex){
             case 0:{
                 var url = 'https://my-json-server.typicode.com/Nika-m/iBank_MainPage/news';
